@@ -23,11 +23,23 @@ namespace ShapeCharacteristics
             Console.WriteLine($"{Contants.ResultOfShape}\n {circleOutput.Name} \n {Contants.PerimeterOfShape} {circleOutput.Perimeter} \n {Contants.SurfaceAreaOfShape} {circleOutput.SurfaceArea}");
             shapeList.Add(circleOutput);
 
-            Console.WriteLine("Shape is Triangle");
+            Console.WriteLine("Shape belongs to Triangle");
             var triangle = _shapeFactory.ShapeInstanceCreator("triangle"); //new Triangle();
-            var triangleOutput = triangle.CalculateShapeParameters(new TriangleParams(20.2, 40));
+            var triangleOutput = triangle.CalculateShapeParameters(new TriangleParams(20.2, 40, 20.4));
             Console.WriteLine($"{Contants.ResultOfShape}\n {triangleOutput.Name} \n {Contants.PerimeterOfShape} {triangleOutput.Perimeter} \n {Contants.SurfaceAreaOfShape} {triangleOutput.SurfaceArea}");
             shapeList.Add(triangleOutput);
+
+            Console.WriteLine("Shape belongs to Triangle");
+            var triangle1 = _shapeFactory.ShapeInstanceCreator("triangle"); //new Triangle();
+            var triangleOutput1 = triangle1.CalculateShapeParameters(new TriangleParams(20.4, 40, 20.4));
+            Console.WriteLine($"{Contants.ResultOfShape}\n {triangleOutput1.Name} \n {Contants.PerimeterOfShape} {triangleOutput1.Perimeter} \n {Contants.SurfaceAreaOfShape} {triangleOutput1.SurfaceArea}");
+            shapeList.Add(triangleOutput1);
+
+            Console.WriteLine("Shape belongs to Triangle");
+            var triangle2 = _shapeFactory.ShapeInstanceCreator("triangle"); //new Triangle();
+            var triangleOutput2 = triangle2.CalculateShapeParameters(new TriangleParams(20, 20, 20));
+            Console.WriteLine($"{Contants.ResultOfShape}\n {triangleOutput2.Name} \n {Contants.PerimeterOfShape} {triangleOutput2.Perimeter} \n {Contants.SurfaceAreaOfShape} {triangleOutput2.SurfaceArea}");
+            shapeList.Add(triangleOutput2);
 
             Console.WriteLine("Shape is Square");
             var square = _shapeFactory.ShapeInstanceCreator("square"); //new Square();
@@ -48,7 +60,7 @@ namespace ShapeCharacteristics
             shapeList.Add(unknownOutput);
 
             Console.WriteLine("\n\n\t\t **************** Shape Instance Count *************************** ");
-            Console.WriteLine($"\n Total instance count is: {_shapeFactory.GetInstanceDetails().Count}\n");
+            Console.WriteLine($"\n Total instance count is: {_shapeFactory.GetInstanceDetails().Values.Sum()}\n");
             foreach (var output in _shapeFactory.GetInstanceDetails())
             {
                 Console.WriteLine($" {output.Key} instances: {output.Value}");

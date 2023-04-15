@@ -1,4 +1,5 @@
-﻿using ShapeCharacteristics.Shapes.interfaces;
+﻿using ShapeCharacteristics.Constants;
+using ShapeCharacteristics.Shapes.interfaces;
 using ShapeCharacteristics.Shapes.ShapeBasedRecords;
 
 namespace ShapeCharacteristics.Shapes
@@ -21,7 +22,7 @@ namespace ShapeCharacteristics.Shapes
 
                 triangleOutputData = new Shape
                 (
-                    "Square",
+                    Contants.Square,
                     (4 * squareInputData.Sides),
                     (squareInputData.Sides * squareInputData.Sides)
                 );

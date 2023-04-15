@@ -8,6 +8,8 @@
 
         public const string Circle = "Circle";
         public const string Triangle = "Triangle";
+        public const string EquilateralTriangle = "Equilateral Triangle";
+        public const string IsoscelesTriangle = "Isosceles Triangle";
         public const string Square = "Square";
         public const string Rectangle = "Rectangle";
 

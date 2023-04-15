@@ -1,4 +1,5 @@
-﻿using ShapeCharacteristics.Shapes.interfaces;
+﻿using ShapeCharacteristics.Constants;
+using ShapeCharacteristics.Shapes.interfaces;
 using ShapeCharacteristics.Shapes.ShapeBasedRecords;
 
 namespace ShapeCharacteristics.Shapes
@@ -21,7 +22,7 @@ namespace ShapeCharacteristics.Shapes
 
                 CrlData = new Shape
                 (
-                    "Circle",
+                    Contants.Circle,
                     (2 * Math.PI * circleParameters.Radius),
                     (Math.PI * circleParameters.Radius * circleParameters.Radius)
                 );

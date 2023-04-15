@@ -1,4 +1,5 @@
-﻿using ShapeCharacteristics.Shapes.ShapeBasedRecords;
+﻿using ShapeCharacteristics.Constants;
+using ShapeCharacteristics.Shapes.ShapeBasedRecords;
 
 namespace ShapeCharacteristics.Shapes
 {
@@ -26,7 +27,7 @@ namespace ShapeCharacteristics.Shapes
                 {
                     rectangleOutputData = new Shape
                                                 (
-                                                    "Rectangle",
+                                                    Contants.Rectangle,
                                                     (2 * (rectangleInputData.Sides + rectangleInputData.Length)),
                                                     (rectangleInputData.Sides * rectangleInputData.Length)
                                                 );

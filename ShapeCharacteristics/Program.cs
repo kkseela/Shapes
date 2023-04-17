@@ -4,7 +4,9 @@ using ShapeCharacteristics.SerializationDeSerialization.JSON;
 using ShapeCharacteristics.SerializationDeSerialization.XML;
 using ShapeCharacteristics.Shapes.interfaces;
 using ShapeCharacteristics.Shapes.ShapeBasedRecords;
+using ShapeCharacteristics.Shapes.ShapeComparer;
 using ShapeCharacteristics.Shapes.ShapesCreator;
+using System.Collections.Immutable;
 
 namespace ShapeCharacteristics
 {
@@ -15,6 +17,8 @@ namespace ShapeCharacteristics
             List<Shape> shapeList = new List<Shape>();
             IShapeFactory _shapeFactory; //IShapeFactoryInstance cnt;
             _shapeFactory = new ShapeFactory();
+
+            ImmutableSortedDictionary<double, Shape> _sd;
 
 
             Console.WriteLine("Shape is Circle");
@@ -68,6 +72,30 @@ namespace ShapeCharacteristics
             }
 
 
+            Console.WriteLine("If you want list of shapes to be sorted by {S} SurfaceArea or {P} Perimeter");
+            ConsoleKeyInfo keyInfo;
+            do
+            {
+                Console.WriteLine("\nChoose S/P:");
+                keyInfo = Console.ReadKey();
+            } while (keyInfo.Key != ConsoleKey.S && keyInfo.Key != ConsoleKey.P);
+
+            ShapeComparer comparer = new ShapeComparer();
+            if (keyInfo.Key == ConsoleKey.S)
+            {                
+                comparer.SortByProperty = ShapeComparer.SortBy.SurfaceArea;
+                shapeList.Sort(comparer);
+                //Alternate for Icomparer implementation to sort a collection.
+                _sd = shapeList.ToImmutableSortedDictionary(s => s.SurfaceArea, s => s);
+            }
+            else
+            {
+                comparer.SortByProperty = ShapeComparer.SortBy.Perimeter;
+                shapeList.Sort(comparer);
+                //Alternate for Icomparer implementation to sort a collection.
+                _sd = shapeList.ToImmutableSortedDictionary(s => s.Perimeter, s => s);
+            }
+
 
             string xmlPath = Path.Combine(Environment.CurrentDirectory, $"Resources\\{Contants.XMLFileName}");
             string jsonPath = Path.Combine(Environment.CurrentDirectory, $"Resources\\{Contants.JsonFileName}");
@@ -76,7 +104,9 @@ namespace ShapeCharacteristics
 
             IFormatFactory factory = new XmlFactory();
             IWriter writer = factory.CreateWriter();
-            writer.Write(shapeList, xmlPath);
+            writer.Write(_sd.Values.ToList(), xmlPath);
+            //writer.Write(shapeList, xmlPath);
+
 
             //IFormatFactory factory = new XmlFactory();
             IReader reader = factory.CreateReader();
@@ -84,14 +114,16 @@ namespace ShapeCharacteristics
 
             factory = new JsonFactory();
             writer = factory.CreateWriter();
-            writer.Write(shapeList, jsonPath);
+            writer.Write(_sd.Values.ToList(), jsonPath);
+            //writer.Write(shapeList, jsonPath);
 
             reader = factory.CreateReader();
             var jsonData = reader.Read<List<Shape>>(jsonPath);
 
             factory = new BinaryFactory();
             writer = factory.CreateWriter();
-            writer.Write(shapeList, binaryPath);
+            writer.Write(_sd.Values.ToList(), binaryPath);
+            //writer.Write(shapeList, binaryPath);
 
             reader = factory.CreateReader();
             var binaryData = reader.Read<List<Shape>>(binaryPath);
@@ -118,6 +150,6 @@ namespace ShapeCharacteristics
             }
 
         }
-    
+
     }
 }

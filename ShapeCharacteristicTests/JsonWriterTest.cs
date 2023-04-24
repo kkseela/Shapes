@@ -7,7 +7,7 @@ namespace ShapeCharacteristicTests
     public class JsonWriterTest
     {
         [TestMethod]
-        [DeploymentItem(@"IOFiles\output2.json")]
+        [DeploymentItem(@"IOFiles/output2.json")]
         public void Write_ValidObjectAndFilePath_WritesToFile()
         {
             // Arrange

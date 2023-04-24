@@ -7,7 +7,7 @@ namespace ShapeCharacteristicTests
     public class XmlReaderTest
     {
         [TestMethod]
-        [DeploymentItem(@"IOFiles\output1.xml")]
+        [DeploymentItem(@"IOFiles/output1.xml")]
         public void Read_ValidFilePath_ReturnsDeserializedObject()
         {
             // Arrange

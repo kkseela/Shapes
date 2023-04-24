@@ -11,12 +11,16 @@
 
   <ItemGroup>
     <None Remove="IOFiles\output1.json" />
+    <None Remove="IOFiles\output2.json" />
     <None Remove="IOFiles\output1.xml" />
     <None Remove="IOFiles\output2.xml" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="IOFiles\output1.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="IOFiles\output2.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="IOFiles\output1.xml">

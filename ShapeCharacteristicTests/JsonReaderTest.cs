@@ -7,7 +7,7 @@ namespace ShapeCharacteristicTests
     public class JsonReaderTest
     {
         [TestMethod]
-        [DeploymentItem(@"IOFiles\output1.json")]
+        [DeploymentItem(@"IOFiles/output1.json")]
         public void Read_ValidFilePath_ReturnsDeserializedObject()
         {
             // Arrange

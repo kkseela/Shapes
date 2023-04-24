@@ -7,7 +7,7 @@ namespace ShapeCharacteristicTests
     public class XmlWriterTests
     {
         [TestMethod]
-        [DeploymentItem(@"IOFiles\output2.xml")]
+        [DeploymentItem(@"IOFiles/output2.xml")]
         public void Write_ValidObjectAndFilePath_WritesToFile()
         {
             // Arrange

@@ -17,13 +17,13 @@
 
   <ItemGroup>
     <Content Include="IOFiles\output1.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="IOFiles\output1.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="IOFiles\output2.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 
@@ -36,6 +36,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ShapeCharacteristics\ShapeCharacteristics.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="IOFiles\output2.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

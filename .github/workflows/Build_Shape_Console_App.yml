@@ -21,8 +21,14 @@ jobs:
     - name: Restore NuGet packages
       run: dotnet restore Shapes.sln
 
-    - name: Build the solution
+    - name: Build the solution (Release)
       run: dotnet build Shapes.sln --configuration Release
 
-    - name: Run tests
-      run: dotnet test ShapeCharacteristicTests/ShapeCharacteristicTests.csproj --logger trx
+    - name: Build the solution (Debug)
+      run: dotnet build Shapes.sln --configuration Debug
+
+    - name: Run tests (Release)
+      run: dotnet test ShapeCharacteristicTests/ShapeCharacteristicTests.csproj --configuration Release --logger trx
+
+    - name: Run tests (Debug)
+      run: dotnet test ShapeCharacteristicTests/ShapeCharacteristicTests.csproj --configuration Debug --logger trx

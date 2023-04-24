@@ -1,0 +1,28 @@
+name: .NET 6.0 CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup .NET 6.0 SDK
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.0.x
+
+    - name: Restore NuGet packages
+      run: dotnet restore Shapes.sln
+
+    - name: Build the solution
+      run: dotnet build Shapes.sln --configuration Release
+
+    - name: Run tests
+      run: dotnet test ShapeCharacteristicTests.csproj --logger trx

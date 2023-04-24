@@ -20,6 +20,19 @@ namespace ShapeCharacteristicTests
         }
 
         [TestMethod]
+        public async Task CreateReader_ReturnsXmlReaderAsyncInstance()
+        {
+            // Arrange
+            IFormatFactoryAsync xmlFactory = new XmlFactory();
+
+            // Act
+            IReader actualReaderInstance = await xmlFactory.CreateReaderAsync();
+
+            // Assert
+            Assert.IsInstanceOfType(actualReaderInstance, typeof(XmlReader));
+        }
+
+        [TestMethod]
         public void CreateWriter_ReturnsXmlWriterInstance()
         {
             // Arrange

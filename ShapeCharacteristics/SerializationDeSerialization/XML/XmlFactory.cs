@@ -3,7 +3,7 @@ using System.Xml;
 
 namespace ShapeCharacteristics.SerializationDeSerialization.XML
 {
-    internal class XmlFactory : IFormatFactory
+    internal class XmlFactory : IFormatFactory, IFormatFactoryAsync
     {
         public IReader CreateReader()
         {
@@ -14,5 +14,21 @@ namespace ShapeCharacteristics.SerializationDeSerialization.XML
         {
             return new XmlWriter();
         }
+
+        public Task<IReader> CreateReaderAsync()
+        {
+            return Task.FromResult<IReader>(new XmlReader());
+        }
+
+        public Task<IWriter> CreateWriterAsync()
+        {
+            return Task.FromResult<IWriter>(new XmlWriter());
+        }
+    }
+
+    internal interface IFormatFactoryAsync
+    {
+        Task<IReader> CreateReaderAsync();
+        Task<IWriter> CreateWriterAsync();
     }
 }

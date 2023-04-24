@@ -12,7 +12,7 @@ namespace ShapeCharacteristicTests
         {
             // Arrange
             IReader jsonReader = new JsonReader();
-            string validFilePath = "IOFiles\\output1.json";
+            string validFilePath = "IOFiles/output1.json";
 
             // Act
             MyClass actualDeserializedObject = jsonReader.Read<MyClass>(validFilePath);

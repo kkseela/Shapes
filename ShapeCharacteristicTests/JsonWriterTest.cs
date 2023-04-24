@@ -13,7 +13,7 @@ namespace ShapeCharacteristicTests
             // Arrange
             IWriter xmlWriter = new JsonWriter();
             MyClass myObject = new MyClass() { Property1 = "value1", Property2 = 123 };
-            string validFilePath = "IOFiles\\output2.json";
+            string validFilePath = "IOFiles/output2.json";
 
             // Act
             xmlWriter.Write(myObject, validFilePath);

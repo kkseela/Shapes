@@ -13,7 +13,7 @@ namespace ShapeCharacteristicTests
             // Arrange
             IWriter xmlWriter = new XmlWriter();
             MyClass myObject = new MyClass() { Property1 = "value1", Property2 = 123 };
-            string validFilePath = "IOFiles\\output2.xml";
+            string validFilePath = "IOFiles/output2.xml";
 
             // Act
             xmlWriter.Write(myObject, validFilePath);

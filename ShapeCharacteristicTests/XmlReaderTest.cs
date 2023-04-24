@@ -12,7 +12,7 @@ namespace ShapeCharacteristicTests
         {
             // Arrange
             IReader xmlReader = new XmlReader();
-            string validFilePath = "IOFiles\\output1.xml";
+            string validFilePath = "IOFiles/output1.xml";
 
             // Act
             MyClass actualDeserializedObject = xmlReader.Read<MyClass>(validFilePath);
